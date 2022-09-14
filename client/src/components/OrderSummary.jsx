@@ -8,6 +8,9 @@ const OrderSummary = () => {
   )
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  flex-basis: 33%;
+  border: 1px solid black;
+`;
 
 export default OrderSummary;
