@@ -12,12 +12,41 @@ const option = {
 };
 
 const createTicket = async (req, res) => {
-  console.log(req.params);
-  console.log(req.query);
+  const client = new MongoClient(MONGO_URI, option);
+  const { _id } = req.body;
+  const data = req.body;
+  console.log(data);
 
-  let data = {};
+  try {
+    await client.connect();
+    const db = client.db(DB_NAME);
+    const ticket = await db.collection("tickets").findOne({ _id });
 
-  res.status(200).json({ status: 200, data, message: "success" });
+    console.log(ticket);
+    if (ticket) {
+      const result = await db.collection("tickets").updateOne(
+        { _id },
+        {
+          $set: data,
+        }
+      );
+
+      console.log(result);
+      return res.status(200).json({
+        status: 200,
+        message: `Ticket updated`,
+      });
+    } else {
+      return res.status(400).json({
+        status: 400,
+        message: `Ticket update failed`,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  } finally {
+    client.close();
+  }
 };
 
 const getTickets = async (req, res) => {
