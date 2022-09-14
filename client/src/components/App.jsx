@@ -58,7 +58,7 @@ const App = () => {
           <Container>
             <Navbar />
             <Routes>
-              {router.map(route => <Route path={route.path} element={route.element} />)}
+              {router.map(route => <Route key={route.path} path={route.path} element={route.element} />)}
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Container>
