@@ -5,11 +5,9 @@ import { COLORS } from "../constants";
 const Footer = () => {
   return (
     <Wrapper>
-        <StyledNavLink to="/">Accueil</StyledNavLink>
-        <StyledNavLink to="/buy-a-ticket">Buy a Ticket</StyledNavLink>
-        <StyledNavLink to="/launch-history">Launch History</StyledNavLink>
+        <Copyright>© 2052, Espace Y. Tous droits réservés</Copyright>
         <StyledNavLink to="/faq">FAQ</StyledNavLink>
-        <StyledNavLink to="/privacy-policy">Privacy Policy</StyledNavLink>
+        <StyledNavLink to="/privacy-policy">Politique de confidentialité</StyledNavLink>
     </Wrapper>
   )
 }
@@ -26,6 +24,9 @@ const Wrapper = styled.div`
 const StyledNavLink = styled(NavLink)`
   color: ${COLORS.light};
   text-decoration: none;
+`;
+const Copyright = styled.div`
+    color: ${COLORS.secondary}
 `;
 
 export default Footer;
