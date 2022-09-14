@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
+
+// Pages Imports
 import Homepage from '../pages/Homepage';
 import Faq from "../pages/Faq";
+import BuyAticket from "../pages/BuyAticket";
+import LaunchHistory from "../pages/LaunchHistory";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+
+// Others
 import Loading from "./Loading";
 import Navbar from "./Navbar";
 import NoMatch from "./NoMatch";
@@ -24,8 +31,20 @@ const App = () => {
       element: <Homepage />,
     },
     {
+      path: "/buy-a-ticket",
+      element: <BuyAticket />,
+    },
+    {
+      path: "/launch-history",
+      element: <LaunchHistory />,
+    },
+    {
       path: "/faq",
       element: <Faq />,
+    },
+    {
+      path: "/privacy-policy",
+      element: <PrivacyPolicy />,
     },
   ];
 
