@@ -5,11 +5,11 @@ import { COLORS } from "../constants";
 const Footer = () => {
   return (
     <Wrapper>
-        <StyledNavLink to="/">Accueil</StyledNavLink>
-        <StyledNavLink to="/buy-a-ticket">Buy a Ticket</StyledNavLink>
-        <StyledNavLink to="/launch-history">Launch History</StyledNavLink>
-        <StyledNavLink to="/faq">FAQ</StyledNavLink>
-        <StyledNavLink to="/privacy-policy">Privacy Policy</StyledNavLink>
+      <StyledNavLink to="/">Accueil</StyledNavLink>
+      <StyledNavLink to="/buy-a-ticket">Buy a Ticket</StyledNavLink>
+      <StyledNavLink to="/launch-history">Launch History</StyledNavLink>
+      <StyledNavLink to="/faq">FAQ</StyledNavLink>
+      <StyledNavLink to="/privacy-policy">Privacy Policy</StyledNavLink>
     </Wrapper>
   )
 }

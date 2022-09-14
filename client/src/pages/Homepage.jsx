@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import Banner from '../components/Banner';
 
 const Homepage = () => {
   return (    
     <Wrapper>
-      <h1>Homepage</h1>
+      <Banner />
     </Wrapper>
   );
 }

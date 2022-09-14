@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   color: ${COLORS.light};
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   gap: 16px;
   margin-bottom: 16px;
 `;
