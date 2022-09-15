@@ -22,7 +22,7 @@ const PhoneNumberInput = (props) => {
       const newPhoneNumber = phoneNumber + count.toString();
       setPhoneNumber(newPhoneNumber);
       // set phone number in parent inputs state
-      props.setInputs(values => ({...values, ["phoneNumber"]: newPhoneNumber}));
+      props.setInputs(values => ({...values, phoneNumber: newPhoneNumber}));
 
       setDelay(Math.max(100, delay - 50));
     };
@@ -34,7 +34,7 @@ const PhoneNumberInput = (props) => {
 
     setPhoneNumber("");
     // set phone number in parent inputs state
-    props.setInputs(values => ({...values, ["phoneNumber"]: ""}));
+    props.setInputs(values => ({...values, phoneNumber: ""}));
     setCurrentDigit(0);
     setDelay(500)
   };

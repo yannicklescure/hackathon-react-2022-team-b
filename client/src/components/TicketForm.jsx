@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 
 // components
-import PhoneNumberInput from './PhoneNumberInput';
+import PhoneNumberInput from "./PhoneNumberInput";
 
 const TicketForm = () => {
   const [inputs, setInputs] = useState({});
@@ -11,12 +11,12 @@ const TicketForm = () => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values, [name]: value}))
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(inputs);
-  }
+  };
 
   return (
     <Wrapper>
@@ -48,7 +48,7 @@ const TicketForm = () => {
       </Form>
     </Wrapper>
   )
-}
+};
 
 const Wrapper = styled.div`
   flex-basis: 66%;

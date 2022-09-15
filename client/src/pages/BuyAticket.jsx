@@ -1,31 +1,31 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 // components
-import TicketForm from '../components/TicketForm';
-import OrderSummary from '../components/OrderSummary';
-import FalseTimer from '../components/FalseTimer';
+import TicketForm from "../components/TicketForm";
+import OrderSummary from "../components/OrderSummary";
+import FalseTimer from "../components/FalseTimer";
 import {COLORS} from "../constants";
 import Ad from "../components/Ad";
 
 const BuyAticket = () => {
     return (
-        <Wrapper>
-            <StyledH1>Achetez un billet dès <Warning>maintenant!</Warning></StyledH1>
+      <Wrapper>
+        <StyledH1>Achetez un billet dès <Warning>maintenant!</Warning></StyledH1>
 
-            <FlexContainer>
-                <TicketForm></TicketForm>
-                <div>
-                    <FalseTimer></FalseTimer>
-                    <OrderSummary></OrderSummary>
-                    <Link href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
-                        <PromotionalMessage>Achetez nos toutes nouvelles BITES BOUCHÉES!</PromotionalMessage>
-                        <Ad></Ad>
-                    </Link>
-                </div>
-            </FlexContainer>
-        </Wrapper>
+        <FlexContainer>
+          <TicketForm></TicketForm>
+          <div>
+            <FalseTimer></FalseTimer>
+            <OrderSummary></OrderSummary>
+            <Link href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
+              <PromotionalMessage>Achetez nos toutes nouvelles BITES BOUCHÉES!</PromotionalMessage>
+              <Ad></Ad>
+            </Link>
+          </div>
+        </FlexContainer>
+      </Wrapper>
     );
-}
+};
 
 const Wrapper = styled.div`
     padding: 1%;
@@ -41,7 +41,7 @@ const StyledH1 = styled.h1`
 
 const Link = styled.a`
   text-decoration: none;
-`
+`;
 
 const Warning = styled.span`
   color: ${COLORS.danger};
