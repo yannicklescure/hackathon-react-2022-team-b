@@ -15,6 +15,7 @@ const BuyAticket = () => {
   const [inkPrice, setInkPrice] = useState(0);
   const [fuel, setFuel] = useState(0);
   const [numOfTickets, setNumOfTickets] = useState(99);
+  const [nbTicket, setNbTicket] = useState(1);
 
   useEffect(() => {
     fetch('/api/tickets')
@@ -47,6 +48,7 @@ const BuyAticket = () => {
           setColor={setColor}
           setColorPrice={setColorPrice}
           setInkPrice={setInkPrice}
+          setNbTicket={setNbTicket}
         />
         <RightBar>
           <FalseTimer />
@@ -57,6 +59,7 @@ const BuyAticket = () => {
             colorPrice={colorPrice}
             carbon={carbon}
             fuel={fuel}
+            nbTicket={nbTicket}
           />
           <Ad />
         </RightBar>

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { COLORS } from '../constants';
 
-const OrderSummary = ({ total, price, color, colorPrice, carbon, fuel }) => {
+const OrderSummary = ({ total, price, color, colorPrice, carbon, fuel, nbTicket}) => {
+
+  const newTotal = nbTicket * total
 
   return (
     <Wrapper color={color}>
@@ -22,9 +24,13 @@ const OrderSummary = ({ total, price, color, colorPrice, carbon, fuel }) => {
         <p>Taxes carburant:</p>
         <p>{fuel} DC</p>
       </StyledElement>
+      <StyledElement>
+        <p>Nombre de billet:</p>
+        <p>{nbTicket}</p>
+      </StyledElement>
       <StyledElementBold>
         <p>Total:</p>
-        <p>{total} DC</p>
+        <p>{newTotal} DC</p>
       </StyledElementBold>
     </Wrapper>
   )

@@ -9,8 +9,9 @@ import CaptchaModal from "../components/CaptchaModal";
 import AddressInputAndLabel from "./AddressInputAndLabel";
 import UserInfo from "./UserInfo";
 import ValidedForm from "./ValidedForm";
+import TicketNumber from "./TicketNumber";
 
-const TicketForm = ({ setInkPrice, setColor, setColorPrice }) => {
+const TicketForm = ({ setInkPrice, setColor, setColorPrice, setNbTicket }) => {
   const [inputs, setInputs] = useState({});
   const [isEmailShuffled, setIsEmailShuffled] = useState(false);
   const [isCaptchaValidated, setIsCaptchaValidated] = useState(false);
@@ -36,6 +37,7 @@ const TicketForm = ({ setInkPrice, setColor, setColorPrice }) => {
         <PhoneNumberInput setInputs={setInputs} />
         <AddressInputAndLabel showEmailField={showEmailField} setShowEmailField={setShowEmailField} />
         <ColorInput setInputs={setInputs} setColor={setColor} setColorPrice={setColorPrice} />
+        <TicketNumber setNbTicket={setNbTicket} />
         <ValidedForm />
       </Form>
 
