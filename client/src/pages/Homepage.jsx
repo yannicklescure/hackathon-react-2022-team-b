@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Banner from '../components/Banner';
 
-const Homepage = () => {
+const Homepage = ({ navbarHeight }) => {
   return (    
     <Wrapper>
-      <Banner />
+      <Banner navbarHeight={navbarHeight} />
     </Wrapper>
   );
 }

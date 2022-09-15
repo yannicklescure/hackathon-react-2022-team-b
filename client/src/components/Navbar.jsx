@@ -2,10 +2,18 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { COLORS } from "../constants";
 import logo from "../assets/space-y.png";
+import { useRef } from "react";
+import { useEffect } from "react";
 
-const Navbar = () => {
+const Navbar = ({ setNavbarHeight }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setNavbarHeight(ref.current.clientHeight);
+  }, [])
+
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       <StyledNavLink to="/">
         <Logo src={logo} />
       </StyledNavLink>
@@ -27,7 +35,6 @@ const Wrapper = styled(Main)`
   padding: 16px;
   background-color: ${COLORS.dark};
   color: ${COLORS.light};
-  margin-bottom: 16px;
   justify-content: space-between;
 `;
 const Container = styled(Main)``;

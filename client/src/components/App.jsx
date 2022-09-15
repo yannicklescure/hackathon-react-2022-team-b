@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
 
 // Pages Imports
@@ -18,6 +18,7 @@ import styled from "styled-components";
 
 const App = () => {
   const [isLoadead, setIsLoadead] = useState(false);
+  const [navbarHeight, setNavbarHeight] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -28,7 +29,7 @@ const App = () => {
   const router = [
     {
       path: "/",
-      element: <Homepage />,
+      element: <Homepage navbarHeight={navbarHeight} />,
     },
     {
       path: "/buy-a-ticket",
@@ -56,7 +57,7 @@ const App = () => {
       ) : (
         <>
           <Container>
-            <Navbar />
+            <Navbar setNavbarHeight={setNavbarHeight} />
             <Routes>
               {router.map(route => <Route key={route.path} path={route.path} element={route.element} />)}
               <Route path="*" element={<NoMatch />} />
