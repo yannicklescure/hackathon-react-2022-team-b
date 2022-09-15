@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import PolicyContent from '../components/PolicyContent'
-
-const randNum = (arr, excludeNum) => {
-  let randNumber = Math.floor(Math.random()*arr.length);
-  return (randNumber === excludeNum) ? randNum(arr,excludeNum) : randNumber;
-};
+import { policyContents } from '../contents/Policy';
 
 const PrivacyPolicy = () => {
-  //const [isLoadead, setIsLoadead] = useState(false);
   const [lang, setLang] = useState('french');
+  
+  const randNum = (arr) => {
+    let currentLangIndex = arr.indexOf(lang);
+    let randNumber = Math.floor(Math.random()*arr.length);
+    return (randNumber === currentLangIndex) ? randNum(arr, currentLangIndex) : randNumber;
+  };
 
-  const langArr = ['french', 'english', 'norwegian', 'mandarin', 'russian']
+  const newLangFunc = () => {
+    const langArr = Object.keys(policyContents);
+    setLang(langArr[randNum(langArr, lang)]);
+  };
 
   useEffect(() => {
     setTimeout(() => {
-      setLang('norwegian');
+      newLangFunc();
     }, 5000);
   }, []);
 
   const handleClick = () => {
-    let currentLang = langArr.indexOf(lang)
-    setLang(langArr[randNum(langArr, currentLang)]);
+    newLangFunc();
   }
 
   return (
@@ -30,9 +33,7 @@ const PrivacyPolicy = () => {
         <Lang onClick={handleClick}>Français</Lang>
         <Lang onClick={handleClick}>English</Lang>
       </LangSwitch>
-      <div className='policyContent'>
-        <PolicyContent lang={lang}></PolicyContent>
-      </div>
+      <PolicyContent lang={lang}></PolicyContent>
     </Wrapper>
   );
 }
@@ -47,7 +48,7 @@ const LangSwitch = styled.div`
   justify-content: center;
   margin-bottom: 45px;
 `;
-const Lang = styled.span`
+const Lang = styled.p`
   margin: 0 10px;
   cursor: pointer;
 `;

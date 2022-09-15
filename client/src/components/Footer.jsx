@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
+  margin: 0;
 `;
 const StyledNavLink = styled(NavLink)`
   color: ${COLORS.light};

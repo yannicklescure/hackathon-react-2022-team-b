@@ -16,10 +16,7 @@ const Banner = ({ navbarHeight }) => {
 };
 
 const Wrapper = styled.div`
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.35), 
-    rgba(0, 0, 0, 0.35)
-  ), url(${({image}) => image});
+  background: url(${({image}) => image});
   /* opacity: 0.85; */
   background-size: cover;
   background-position: center;

@@ -28,10 +28,11 @@ const Navbar = ({ setNavbarHeight }) => {
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: center;
   gap: 16px;
 `;
 const Wrapper = styled(Main)`
+  margin: 0;
   padding: 16px;
   background-color: ${COLORS.dark};
   color: ${COLORS.light};
