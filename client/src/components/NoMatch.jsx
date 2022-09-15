@@ -10,7 +10,7 @@ const NoMatch = (kevError) => {
           <KevErrorContainer image={KevError}></KevErrorContainer>
           <NotFoundText>4</NotFoundText>
         </Wrapper>
-        <KevErrorMessage>Oh non! Vous avez eu une erreur 404-KEV. Cliquez <a href={"#"} onClick={() => {window.open(KevError,"_blank")}}>ici</a> afin d'avoir un meilleur apperçu de KEV</KevErrorMessage>
+          <KevErrorMessage>Oh non! Vous avez eu une erreur <i>QUATRE-CENTS-KEV</i>. Cliquez <a href={"#"} onClick={() => {window.open(KevError,"_blank")}}>ici</a> afin d'avoir un meilleur apperçu de KEV</KevErrorMessage>
       </div>
   )
 }
