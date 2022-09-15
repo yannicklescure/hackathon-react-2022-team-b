@@ -43,6 +43,7 @@ const TicketForm = () => {
 
         <br/> {/* delete me */}
         <button type="submit">Soumettre</button>
+        <button type="reset">Réinitialiser</button>
       </Form>
     </Wrapper>
   )

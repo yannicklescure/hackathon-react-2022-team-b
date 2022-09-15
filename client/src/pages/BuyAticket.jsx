@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // components
 import TicketForm from '../components/TicketForm';
 import OrderSummary from '../components/OrderSummary';
+import FalseTimer from '../components/FalseTimer';
 import {COLORS} from "../constants";
 import Ad from "../components/Ad";
 
@@ -14,6 +15,7 @@ const BuyAticket = () => {
             <FlexContainer>
                 <TicketForm></TicketForm>
                 <div>
+                    <FalseTimer></FalseTimer>
                     <OrderSummary></OrderSummary>
                     <Link href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
                         <PromotionalMessage>Achetez nos toutes nouvelles BITES BOUCHÉES!</PromotionalMessage>
@@ -44,6 +46,19 @@ const Link = styled.a`
 const Warning = styled.span`
   color: ${COLORS.danger};
   font-size: 2.5rem;
+  &:after {
+    content:"←";
+    transform: rotate(340deg);
+    position:absolute;
+    top: 4.5rem;
+  }
+  &:before {
+    content:"←";
+    transform: rotate(225deg);
+    position:absolute;
+    top: 4rem;
+    left: 49%;
+  }
 `;
 
 const FlexContainer = styled.div`
