@@ -7,7 +7,8 @@ const Footer = () => {
     <Wrapper>
       <Copyright>© 2052, Espace Y. Tous droits réservés</Copyright>
       <StyledNavLink to="/faq">FAQ</StyledNavLink>
-      <StyledNavLink to="/privacy-policy">Politique de confidentialité</StyledNavLink>
+      <StyledNavLink to="/formulaire-de-plaite">Formuler une plainte</StyledNavLink>
+      <StyledNavLink to="/politique-de-confidentialite">Politique de confidentialité</StyledNavLink>
     </Wrapper>
   )
 }

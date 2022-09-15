@@ -8,6 +8,7 @@ import Faq from "../pages/Faq";
 import BuyAticket from "../pages/BuyAticket";
 import LaunchHistory from "../pages/LaunchHistory";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import Complaint from "../pages/Complaint";
 
 // Others
 import Loading from "./Loading";
@@ -44,8 +45,12 @@ const App = () => {
       element: <Faq />,
     },
     {
-      path: "/privacy-policy",
+      path: "/politique-de-confidentialite",
       element: <PrivacyPolicy />,
+    },
+    {
+      path: "/formulaire-de-plaite",
+      element: <Complaint />,
     },
   ];
 
