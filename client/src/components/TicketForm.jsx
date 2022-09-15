@@ -23,9 +23,8 @@ const TicketForm = () => {
   };
 
   const handleSubmit = (event) => {
-    setIsEmailShuffled(true);
     event.preventDefault();
-
+    setIsEmailShuffled(true);
     if (isCaptchaValidated) {
       console.log(inputs);
     } else {
