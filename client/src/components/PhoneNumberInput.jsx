@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useInterval from "../hooks/useInterval";
 import styled from "styled-components";
+import { COLORS } from "../constants";
 
 const PhoneNumberInput = (props) => {
   const [count, setCount] = useState(0);
@@ -75,13 +76,13 @@ const DigitsContainer = styled.div`
 
 const DigitDivider = styled.div`
   margin-right: 10px;
-  padding: 3px 0;;
+  padding: 3px 0;
 `;
 
 const SingleDigit = styled.div`
   padding: 3px 0;
   margin-right: 10px;
-  border: 1px solid black;
+  border: 1px solid ${COLORS.secondary};
   border-radius: 4px;
   min-width: 1.5em;
   text-align: center;
