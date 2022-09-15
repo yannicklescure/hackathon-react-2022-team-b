@@ -25,6 +25,10 @@ const TicketForm = (props) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values, [name]: value}))
+
+    // calculate the price of printing the name on the ticket
+    const fullNameLength = (inputs.firstName?.length || 0) + (inputs.lastName?.length || 0);
+    props.setInkPrice(fullNameLength * 142);
   };
 
   const handleSubmit = (event) => {

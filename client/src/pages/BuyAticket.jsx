@@ -12,17 +12,18 @@ const BuyAticket = () => {
   const [colorPrice, setColorPrice] = useState(0);
   const [color, setColor] = useState(COLORS.white);
   const [carbon, setCarbon] = useState(0);
+  const [inkPrice, setInkPrice] = useState(0);
   const [fuel, setFuel] = useState(0);
 
   useEffect(() => {
-    const txCarbon = (price + colorPrice) * 0.2;
+    const txCarbon = (price + colorPrice + inkPrice) * 0.2;
     setCarbon(txCarbon);
     const txFuel = (price + colorPrice) * 0.1;
     setFuel(txFuel);
     let result = price + colorPrice + txCarbon + txFuel;
     if (result > 289000) result = 289000;
     setTotal(result);
-  }, [price, colorPrice]);
+  }, [price, colorPrice, inkPrice]);
 
   return (
     <Wrapper>
@@ -32,6 +33,7 @@ const BuyAticket = () => {
           color={color}
           setColor={setColor}
           setColorPrice={setColorPrice}
+          setInkPrice={setInkPrice}
         />
         <RightBar>
           <OrderSummary
