@@ -43,23 +43,4 @@ const Emailinput = ({ isEmailShuffled, setIsEmailShuffled }) => {
 
 const Wrapper = styled.div``;
 
-const DigitsContainer = styled.div`
-  display: flex;
-  margin: 5px 0;
-`;
-
-const DigitDivider = styled.div`
-  margin-right: 10px;
-  padding: 3px 0;;
-`;
-
-const SingleDigit = styled.div`
-  padding: 3px 0;
-  margin-right: 10px;
-  border: 1px solid black;
-  border-radius: 4px;
-  min-width: 1.5em;
-  text-align: center;
-`;
-
 export default Emailinput;

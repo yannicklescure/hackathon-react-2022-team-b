@@ -4,13 +4,16 @@ import styled from "styled-components";
 // components
 import PhoneNumberInput from "./PhoneNumberInput";
 import EmailInput from "./Emailinput";
+import ColorInput from "./ColorInput";
 import CaptchaModal from "../components/CaptchaModal";
+import AddressInputAndLabel from "./AddressInputAndLabel";
 
-const TicketForm = () => {
+const TicketForm = (props) => {
   const [inputs, setInputs] = useState({});
   const [isEmailShuffled, setIsEmailShuffled] = useState(false);
   const [isCaptchaValidated, setIsCaptchaValidated] = useState(false);
   const [showCaptchaModal, setShowCaptchaModal] = useState(false);
+  const [showEmailField, setShowEmailField] = useState(false);
 
   function toggleCaptchaModal() {
     setShowCaptchaModal(current => !current);
@@ -25,6 +28,7 @@ const TicketForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsEmailShuffled(true);
+    setShowEmailField(true);
     if (isCaptchaValidated) {
       console.log(inputs);
     } else {
@@ -59,11 +63,20 @@ const TicketForm = () => {
         <Label>Numéro de Téléphone : </Label>
         <PhoneNumberInput setInputs={setInputs}></PhoneNumberInput>
 
+        <AddressInputAndLabel showEmailField={showEmailField} setShowEmailField={setShowEmailField}></AddressInputAndLabel>
+
+        <Label>Couleur du ticket : </Label>
+        <ColorInput setInputs={setInputs} setColor={props.setColor} setColorPrice={props.setColorPrice}></ColorInput>
+
         <button type="submit">Soumettre</button>
         <button type="reset">Réinitialiser</button>
       </Form>
 
-      <CaptchaModal showCaptchaModal={showCaptchaModal} toggleCaptchaModal={toggleCaptchaModal} setIsCaptchaValidated={setIsCaptchaValidated}></CaptchaModal>
+      <CaptchaModal
+        showCaptchaModal={showCaptchaModal}
+        toggleCaptchaModal={toggleCaptchaModal}
+        setIsCaptchaValidated={setIsCaptchaValidated}
+      ></CaptchaModal>
     </Wrapper>
   )
 };

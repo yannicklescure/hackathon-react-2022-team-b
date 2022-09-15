@@ -10,7 +10,7 @@ const BuyAticket = () => {
   const [total, setTotal] = useState(0);
   const [price, setPrice] = useState(54000);
   const [colorPrice, setColorPrice] = useState(0);
-  const [color, setColor] = useState(COLORS.orange);
+  const [color, setColor] = useState(COLORS.white);
   const [carbon, setCarbon] = useState(0);
   const [fuel, setFuel] = useState(0);
 
@@ -28,7 +28,11 @@ const BuyAticket = () => {
     <Wrapper>
       <StyledH1>Achetez un billet dès <Warning>maintenant!</Warning></StyledH1>
       <Container>
-        <TicketForm />
+        <TicketForm
+          color={color}
+          setColor={setColor}
+          setColorPrice={setColorPrice}
+        />
         <RightBar>
           <OrderSummary
             total={total}
