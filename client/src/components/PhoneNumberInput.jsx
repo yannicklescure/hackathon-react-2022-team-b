@@ -45,25 +45,28 @@ const PhoneNumberInput = (props) => {
   };
 
   return (
-    <Wrapper>
-      <DigitsContainer>
-        <SingleDigit>{countForPosition(0)}</SingleDigit>
-        <SingleDigit>{countForPosition(1)}</SingleDigit>
-        <SingleDigit>{countForPosition(2)}</SingleDigit>
-        <DigitDivider>—</DigitDivider>
-        <SingleDigit>{countForPosition(3)}</SingleDigit>
-        <SingleDigit>{countForPosition(4)}</SingleDigit>
-        <SingleDigit>{countForPosition(5)}</SingleDigit>
-        <DigitDivider>—</DigitDivider>
-        <SingleDigit>{countForPosition(6)}</SingleDigit>
-        <SingleDigit>{countForPosition(7)}</SingleDigit>
-        <SingleDigit>{countForPosition(8)}</SingleDigit>
-        <SingleDigit>{countForPosition(9)}</SingleDigit>
-      </DigitsContainer>
+    <>
+      <Label>Numéro de Téléphone : </Label>
+      <Wrapper>
+        <DigitsContainer>
+          <SingleDigit>{countForPosition(0)}</SingleDigit>
+          <SingleDigit>{countForPosition(1)}</SingleDigit>
+          <SingleDigit>{countForPosition(2)}</SingleDigit>
+          <DigitDivider>—</DigitDivider>
+          <SingleDigit>{countForPosition(3)}</SingleDigit>
+          <SingleDigit>{countForPosition(4)}</SingleDigit>
+          <SingleDigit>{countForPosition(5)}</SingleDigit>
+          <DigitDivider>—</DigitDivider>
+          <SingleDigit>{countForPosition(6)}</SingleDigit>
+          <SingleDigit>{countForPosition(7)}</SingleDigit>
+          <SingleDigit>{countForPosition(8)}</SingleDigit>
+          <SingleDigit>{countForPosition(9)}</SingleDigit>
+        </DigitsContainer>
 
-      <button onClick={pickDigit}>Sélectionner</button>
-      <button onClick={resetAllDigits}>Réinitialiser</button>
-    </Wrapper>
+        <button onClick={pickDigit}>Sélectionner</button>
+        <button onClick={resetAllDigits}>Réinitialiser</button>
+      </Wrapper>
+    </>
   )
 };
 
@@ -73,12 +76,14 @@ const DigitsContainer = styled.div`
   display: flex;
   margin: 5px 0;
 `;
-
+const Label = styled.label`
+  padding-top:    20px;
+  padding-bottom: 3px;
+`;
 const DigitDivider = styled.div`
   margin-right: 10px;
   padding: 3px 0;
 `;
-
 const SingleDigit = styled.div`
   padding: 3px 0;
   margin-right: 10px;

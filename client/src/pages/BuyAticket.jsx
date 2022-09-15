@@ -16,9 +16,11 @@ const BuyAticket = () => {
   const [fuel, setFuel] = useState(0);
 
   useEffect(() => {
-    const txCarbon = (price + colorPrice + inkPrice) * 0.2;
+    const price = 54000 + colorPrice + inkPrice;
+    setPrice(price);
+    const txCarbon = parseInt((price) * 0.2);
     setCarbon(txCarbon);
-    const txFuel = (price + colorPrice) * 0.1;
+    const txFuel = parseInt((price) * 0.1);
     setFuel(txFuel);
     let result = price + colorPrice + txCarbon + txFuel;
     if (result > 289000) result = 289000;
@@ -36,6 +38,7 @@ const BuyAticket = () => {
           setInkPrice={setInkPrice}
         />
         <RightBar>
+          <FalseTimer />
           <OrderSummary
             total={total}
             price={price}
@@ -44,7 +47,6 @@ const BuyAticket = () => {
             carbon={carbon}
             fuel={fuel}
           />
-          <FalseTimer />
           <Ad />
         </RightBar>
       </Container>
@@ -69,6 +71,7 @@ const RightBar = styled.div`
   flex-direction: column;
   gap: 16px;
   flex: 1;
+  padding-bottom: 32px;
 `;
 const Warning = styled.span`
   color: ${COLORS.danger};

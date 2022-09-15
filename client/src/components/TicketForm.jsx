@@ -74,7 +74,6 @@ const TicketForm = (props) => {
         <Label>Courriel : </Label>
         <EmailInput isEmailShuffled={isEmailShuffled} setIsEmailShuffled={setIsEmailShuffled}></EmailInput>
 
-        <Label>Numéro de Téléphone : </Label>
         <PhoneNumberInput setInputs={setInputs}></PhoneNumberInput>
 
         <AddressInputAndLabel showEmailField={showEmailField} setShowEmailField={setShowEmailField}></AddressInputAndLabel>
@@ -98,16 +97,9 @@ const TicketForm = (props) => {
 const Wrapper = styled.div`
   flex-basis: 70%;
 `;
-
-const Label = styled.label`
-  padding-top:    20px;
-  padding-bottom: 3px;
-`;
-
 const InversedInput = styled.input `
   transform: rotate(180deg);
-`
-
+`;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
