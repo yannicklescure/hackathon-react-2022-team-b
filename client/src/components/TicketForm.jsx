@@ -3,9 +3,11 @@ import styled from "styled-components";
 
 // components
 import PhoneNumberInput from "./PhoneNumberInput";
+import EmailInput from "./Emailinput";
 
 const TicketForm = () => {
   const [inputs, setInputs] = useState({});
+  const [isEmailShuffled, setIsEmailShuffled] = useState(false);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -14,6 +16,7 @@ const TicketForm = () => {
   };
 
   const handleSubmit = (event) => {
+    setIsEmailShuffled(true);
     event.preventDefault();
     console.log(inputs);
   };
@@ -38,6 +41,9 @@ const TicketForm = () => {
           value={inputs.lastName || ""} 
           onChange={handleChange}
         />
+
+        <Label>Courriel : </Label>
+        <EmailInput isEmailShuffled={isEmailShuffled} setIsEmailShuffled={setIsEmailShuffled}></EmailInput>
 
         <Label>Numéro de Téléphone : </Label>
         <PhoneNumberInput setInputs={setInputs}></PhoneNumberInput>
