@@ -7,10 +7,6 @@ const Faq = () => {
     const [elements, setElements] = useState(FAQquestions);
     const [forceUpdate, setForceUpdate] = useState(0);
 
-    useEffect(() => {
-        elements[0].isOpen = true;
-    })
-
     const handleClick = (e) => {
       const index = parseInt(e.currentTarget.id.replace('q',''));
       let els = elements;
