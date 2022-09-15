@@ -30,6 +30,7 @@ const BuyAticket = () => {
   return (
     <Wrapper>
       <StyledH1>Achetez un billet dès <Warning>maintenant!</Warning></StyledH1>
+      <StyledH2>Achetez un billet dès <Warning>maintenant!</Warning></StyledH2>
       <Container>
         <TicketForm
           color={color}

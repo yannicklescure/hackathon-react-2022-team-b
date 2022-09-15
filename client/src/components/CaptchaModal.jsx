@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 
 // components
 import CaptchaColorTile from './CaptchaColorTile';
@@ -16,7 +16,7 @@ const CaptchaModal = ({ showCaptchaModal, setIsCaptchaValidated, toggleCaptchaMo
       <Container>
         <h1>Veuillez sélectionner les bonnes couleurs</h1>
         <ImageGrid>
-          {Array(9).fill().map(() => <CaptchaColorTile />)}
+          {Array(9).fill().map(() => <CaptchaColorTile key={uuidv4()} />)}
         </ImageGrid>
         <Button onClick={validateCaptcha}>Valider</Button>
       </Container>

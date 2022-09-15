@@ -16,7 +16,7 @@ const TicketForm = ({ setInkPrice, setColor, setColorPrice }) => {
   const [isCaptchaValidated, setIsCaptchaValidated] = useState(false);
   const [showCaptchaModal, setShowCaptchaModal] = useState(false);
   const [showEmailField, setShowEmailField] = useState(false);
-  const [isFormReadyToSubmit, setIsFormReadyToSubmit] = useState(false);
+  // const [isFormReadyToSubmit, setIsFormReadyToSubmit] = useState(false);
 
   const toggleCaptchaModal = () => {
     setShowCaptchaModal(!showCaptchaModal);
@@ -50,11 +50,13 @@ const TicketForm = ({ setInkPrice, setColor, setColorPrice }) => {
 
 const Wrapper = styled.div`
   flex-basis: 70%;
+  padding-bottom: 32px;
 `;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 16px;
 `;
 
 export default TicketForm;
