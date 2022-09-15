@@ -39,6 +39,7 @@ const TicketForm = () => {
           onChange={handleChange}
         />
 
+        <Label>Numéro de Téléphone : </Label>
         <PhoneNumberInput setInputs={setInputs}></PhoneNumberInput>
 
         <br/> {/* delete me */}
@@ -61,7 +62,7 @@ const Label = styled.label`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-   align-items: flex-start;
+  align-items: flex-start;
 `;
 
 export default TicketForm;
