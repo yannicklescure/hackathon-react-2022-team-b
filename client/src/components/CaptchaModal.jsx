@@ -1,35 +1,24 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const CaptchaModal = ({ showCaptchaModal, setIsCaptchaValidated, toggleCaptchaModal }) => {
-  const [colors, setColors] = useState([]);
+// components
+import CaptchaColorTile from './CaptchaColorTile';
 
+const CaptchaModal = ({ showCaptchaModal, setIsCaptchaValidated, toggleCaptchaModal }) => {
   const validateCaptcha = () => {
     // I trust the user, this captcha is filled properly
     setIsCaptchaValidated(true);
     toggleCaptchaModal();
   };
-
-  const randomColor = () => {
-    return `rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)})`
-  };
-
-  useEffect(() => {
-    const arr = [];
-    for(let i=0; i < 9; i++) {
-      arr.push(randomColor());
-    }
-    setColors(arr);
-  }, [])
   
   return (
     <Wrapper showCaptchaModal={showCaptchaModal}>
       <Container>
         <h1>Veuillez sélectionner les bonnes couleurs</h1>
         <ImageGrid>
-          {colors.map(color => <ImageTile color={color} />)}
+          {Array(9).fill().map(() => <CaptchaColorTile />)}
         </ImageGrid>
-        <button onClick={validateCaptcha}>Valider</button>
+        <Button onClick={validateCaptcha}>Valider</Button>
       </Container>
     </Wrapper>
   )
@@ -51,7 +40,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 500px;
   height: 500px;
-  padding: 5px;
+  padding: 15px;
   background-color: #FFF;
   display: flex;
   flex-direction: column;
@@ -62,11 +51,19 @@ const ImageGrid = styled.div`
   justify-content: space-evenly;
   flex-grow: 1;
 `;
-const ImageTile = styled.button`
-  background-color: ${({color}) => color};
-  height: 30%;
-  width: 30%;
+const Button = styled.button `
+  background-color: #126ffc;
+  border: 2px solid #126ffc;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #f8fafb;
+  padding: 4px 4px;
   margin: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #3e85f1;
+    border-color: #3e85f1;
+  }
 `;
 
 export default CaptchaModal;
