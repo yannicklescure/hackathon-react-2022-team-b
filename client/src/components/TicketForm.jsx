@@ -15,6 +15,8 @@ const TicketForm = (props) => {
   const [showCaptchaModal, setShowCaptchaModal] = useState(false);
   const [showEmailField, setShowEmailField] = useState(false);
 
+  const [isFormReadyToSubmit, setIsFormReadyToSubmit] = useState(false);
+
   function toggleCaptchaModal() {
     setShowCaptchaModal(current => !current);
   };
@@ -28,12 +30,20 @@ const TicketForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsEmailShuffled(true);
-    setShowEmailField(true);
-    if (isCaptchaValidated) {
-      console.log(inputs);
+    if(!showEmailField) {
+      setShowEmailField(true);
+      alert("Veuillez insérer votre adresse");
     } else {
-      setShowCaptchaModal(true);
-    };
+
+    }
+
+    if(isFormReadyToSubmit) {
+      if (isCaptchaValidated) {
+        console.log(inputs);
+      } else {
+        setShowCaptchaModal(true);
+      }
+    }
   };
 
   return (
