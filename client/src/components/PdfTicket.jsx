@@ -122,12 +122,8 @@ const BasicDocument = ({
   time = new Date().getSeconds()
 }) => {
   
-  const sec = time
-
+  const sec = time;
   const isOdd = (n) => Math.abs(n % 2) === 1;
-
-  console.log(sec)
-  console.log(isOdd(sec))
 
   return (
     <PDFViewer style={styles.viewer}>

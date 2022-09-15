@@ -9,6 +9,7 @@ import BuyAticket from "../pages/BuyAticket";
 import LaunchHistory from "../pages/LaunchHistory";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import Complaint from "../pages/Complaint";
+import AboutUs from "../pages/AboutUs";
 
 // Others
 import Loading from "./Loading";
@@ -56,6 +57,10 @@ const App = () => {
     {
       path: "/ticket",
       element: <Confirmation />,
+    },
+    {
+      path: "/About-us",
+      element: <AboutUs />,
     },
   ];
 
