@@ -1,17 +1,17 @@
 # Organigramme
 
-- [ ] Root
+- [X] Root
 - [ ] Formulaire
-- [ ] Privacy policy
-- [ ] FAQ
+- [X] Privacy policy
+- [X] FAQ
 - [ ] Historique des lancements (Optionnel)
 
 
 # Fonctions de base
 
-- [ ] Navbar
-- [ ] Footer
-- [ ] Bannière de l'accueil avec CTA vers le formulaire
+- [X] Navbar
+- [X] Footer
+- [X] Bannière de l'accueil avec CTA vers le formulaire
 - [ ] Formulaire d'achat de billet
 
 
@@ -36,12 +36,12 @@
     - [ ] le bouton delete fait apparaitre un popup avec un message de virus ou un formatage de l'ordinateur
 - [ ] Une fois qu'on valide le formulaire, donner un erreur et ajouter des étapes au formulaire
 - [ ] Billet imprimmable en PDF ou HTML avec des infos eronné, ou tout simplement pas un billet
-- [ ] Bouton de plainte non fonctionnel
-- [ ] Privacy policy avec des langues incompréhensibles
-    - [ ] Langue qui change automatiquement après un certain temps
-- [ ] Truc à Étienne pour le numéro de téléphone
+- [X] Bouton de plainte non fonctionnel
+- [X] Privacy policy avec des langues incompréhensibles
+    - [X] Langue qui change automatiquement après un certain temps
+- [X] Truc à Étienne pour le numéro de téléphone
 - [ ] Popup qui mentionne qu'on va faire livrer à l'adresse
     - [ ] Ajouter un prix de livraison obligatoire d'un montant absurde
-- [ ] Mettre le copyright en 2052 (Petit détail par rapport à la description du projet dans le document de règles)
+- [X] Mettre le copyright en 2052 (Petit détail par rapport à la description du projet dans le document de règles)
 
 
