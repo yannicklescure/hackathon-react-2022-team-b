@@ -48,24 +48,24 @@ const PhoneNumberInput = (props) => {
     <>
       <Label>Numéro de Téléphone : </Label>
       <Wrapper>
-        <DigitsContainer>
-          <SingleDigit>{countForPosition(0)}</SingleDigit>
-          <SingleDigit>{countForPosition(1)}</SingleDigit>
-          <SingleDigit>{countForPosition(2)}</SingleDigit>
-          <DigitDivider>—</DigitDivider>
-          <SingleDigit>{countForPosition(3)}</SingleDigit>
-          <SingleDigit>{countForPosition(4)}</SingleDigit>
-          <SingleDigit>{countForPosition(5)}</SingleDigit>
-          <DigitDivider>—</DigitDivider>
-          <SingleDigit>{countForPosition(6)}</SingleDigit>
-          <SingleDigit>{countForPosition(7)}</SingleDigit>
-          <SingleDigit>{countForPosition(8)}</SingleDigit>
-          <SingleDigit>{countForPosition(9)}</SingleDigit>
-        </DigitsContainer>
+      <DigitsContainer>
+        <SingleDigit>{countForPosition(0)}</SingleDigit>
+        <SingleDigit>{countForPosition(1)}</SingleDigit>
+        <SingleDigit>{countForPosition(2)}</SingleDigit>
+        <DigitDivider>—</DigitDivider>
+        <SingleDigit>{countForPosition(3)}</SingleDigit>
+        <SingleDigit>{countForPosition(4)}</SingleDigit>
+        <SingleDigit>{countForPosition(5)}</SingleDigit>
+        <DigitDivider>—</DigitDivider>
+        <SingleDigit>{countForPosition(6)}</SingleDigit>
+        <SingleDigit>{countForPosition(7)}</SingleDigit>
+        <SingleDigit>{countForPosition(8)}</SingleDigit>
+        <SingleDigit>{countForPosition(9)}</SingleDigit>
+      </DigitsContainer>
 
-        <button onClick={pickDigit}>Sélectionner</button>
-        <button onClick={resetAllDigits}>Réinitialiser</button>
-      </Wrapper>
+      <Button onClick={pickDigit}>Sélectionner</Button>
+      <Button onClick={resetAllDigits}>Réinitialiser</Button>
+    </Wrapper>
     </>
   )
 };
@@ -92,5 +92,20 @@ const SingleDigit = styled.div`
   min-width: 1.5em;
   text-align: center;
 `;
+
+const Button = styled.button `
+  background-color: #126ffc;
+  border: 2px solid #126ffc;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #f8fafb;
+  padding: 4px 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #3e85f1;
+    border-color: #3e85f1;
+  }
+`
 
 export default PhoneNumberInput;
