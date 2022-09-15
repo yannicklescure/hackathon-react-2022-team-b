@@ -14,6 +14,16 @@ const BuyAticket = () => {
   const [carbon, setCarbon] = useState(0);
   const [inkPrice, setInkPrice] = useState(0);
   const [fuel, setFuel] = useState(0);
+  const [numOfTickets, setNumOfTickets] = useState(99);
+
+  useEffect(() => {
+    fetch('/api/tickets')
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      setNumOfTickets(numOfTickets - result.data.length);
+    })
+  }, [])
 
   useEffect(() => {
     const price = 54000 + colorPrice + inkPrice;
@@ -30,7 +40,7 @@ const BuyAticket = () => {
   return (
     <Wrapper>
       <StyledH1>Achetez un billet dès <Warning>maintenant!</Warning></StyledH1>
-      <StyledH2>Achetez un billet dès <Warning>maintenant!</Warning></StyledH2>
+      <StyledH2>Seulement {numOfTickets} billets restants</StyledH2>
       <Container>
         <TicketForm
           color={color}
@@ -65,7 +75,12 @@ const StyledH1 = styled.h1`
   color: ${COLORS.black};
   font-size: 1.7rem;
   text-align: center;
-  padding: 32px 0;
+  padding-top: 32px;
+  `;
+const StyledH2 = styled.h2`
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 32px;
 `;
 const RightBar = styled.div`
   display: flex;

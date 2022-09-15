@@ -36,7 +36,7 @@ const TicketForm = ({ setInkPrice, setColor, setColorPrice }) => {
         <PhoneNumberInput setInputs={setInputs} />
         <AddressInputAndLabel showEmailField={showEmailField} setShowEmailField={setShowEmailField} />
         <ColorInput setInputs={setInputs} setColor={setColor} setColorPrice={setColorPrice} />
-        <ValidedForm /> 
+        <ValidedForm />
       </Form>
 
       <CaptchaModal
@@ -56,7 +56,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  /* gap: 16px; */
 `;
 
 export default TicketForm;
