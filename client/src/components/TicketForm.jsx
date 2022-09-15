@@ -22,7 +22,7 @@ const TicketForm = () => {
     <Wrapper>
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="firstName">Prénom : </Label>
-        <input 
+        <input
           type="text" 
           name="firstName" 
           id="firstName"
@@ -31,7 +31,7 @@ const TicketForm = () => {
         />
 
         <Label htmlFor="lastName">Nom de famille : </Label>
-        <input 
+        <InversedInput
           type="text" 
           name="lastName"
           id="lastName"
@@ -58,6 +58,10 @@ const Label = styled.label`
   padding-top:    20px;
   padding-bottom: 3px;
 `;
+
+const InversedInput = styled.input `
+  transform: rotate(180deg);
+`
 
 const Form = styled.form`
   display: flex;

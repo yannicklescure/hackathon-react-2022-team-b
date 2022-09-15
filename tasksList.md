@@ -17,7 +17,7 @@
 
 # Fonctions BadUI
 
-- [ ] Compteur pour remplir le formulaire, sinon il se delete
+- [X] Compteur pour remplir le formulaire, sinon il se delete
 - [ ] Recatpcha custom
     - Des images qui ne font pas de sens
     - Des photos des membres de l'équipe
