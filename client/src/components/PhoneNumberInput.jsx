@@ -61,8 +61,8 @@ const PhoneNumberInput = (props) => {
         <SingleDigit>{countForPosition(9)}</SingleDigit>
       </DigitsContainer>
 
-      <button onClick={pickDigit}>Sélectionner</button>
-      <button onClick={resetAllDigits}>Réinitialiser</button>
+      <Button onClick={pickDigit}>Sélectionner</Button>
+      <Button onClick={resetAllDigits}>Réinitialiser</Button>
     </Wrapper>
   )
 };
@@ -87,5 +87,20 @@ const SingleDigit = styled.div`
   min-width: 1.5em;
   text-align: center;
 `;
+
+const Button = styled.button `
+  background-color: #126ffc;
+  border: 2px solid #126ffc;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #f8fafb;
+  padding: 4px 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #3e85f1;
+    border-color: #3e85f1;
+  }
+`
 
 export default PhoneNumberInput;

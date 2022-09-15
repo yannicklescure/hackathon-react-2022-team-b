@@ -4,7 +4,7 @@ import { COLORS } from '../constants';
 
 const OrderSummary = () => {
   return (
-    <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+    <Link href="https://www.youtube.com/watch?v=a3Z7zEc7AXQ" target="_blank">
       <PromotionalMessage>Disponible dans nos fusées !</PromotionalMessage>
       <Wrapper image={AdImage} />
     </Link>
