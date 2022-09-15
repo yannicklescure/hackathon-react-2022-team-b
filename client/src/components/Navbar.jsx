@@ -18,8 +18,7 @@ const Navbar = ({ setNavbarHeight }) => {
         <Logo src={logo} />
       </StyledNavLink>
       <Container>
-        <StyledNavLink to="/buy-a-ticket">Acheter un billet</StyledNavLink>
-        <StyledNavLink to="/launch-history">Historique de lancement</StyledNavLink>
+        <Purchase to="/buy-a-ticket">Acheter un billet</Purchase>
       </Container>
     </Wrapper>
   )
@@ -42,6 +41,10 @@ const Container = styled(Main)``;
 const StyledNavLink = styled(NavLink)`
   color: ${COLORS.light};
   text-decoration: none;
+`;
+const Purchase = styled(StyledNavLink)`
+  border: 2px solid ${COLORS.light};
+  padding: 12px 24px;
 `;
 const Logo = styled.img`
   height: 25px;

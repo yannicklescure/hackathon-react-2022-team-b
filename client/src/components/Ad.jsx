@@ -12,10 +12,12 @@ const OrderSummary = () => {
 }
 
 const Wrapper = styled.div`
-  min-height: 100%;
+  height: 300px;
   background: url(${({image}) => image});
   background-repeat: no-repeat;
   background-size: 100%;
+  background-size: cover;
+  background-position: center;
 `;
 const PromotionalMessage = styled.p`
   color: ${COLORS.red2};

@@ -12,7 +12,7 @@ const FalseTimer = () => {
 
   return (
     <Wrapper>
-      <Warning>Attention!!</Warning> Il vous reste: <Warning>{ counter }</Warning> secondes
+      <Warning>{ counter }</Warning> secondes restantes
     </Wrapper>
   )
 }

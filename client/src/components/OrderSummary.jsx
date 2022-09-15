@@ -1,21 +1,52 @@
 import styled from 'styled-components';
+import { COLORS } from '../constants';
 
-const OrderSummary = () => {
-    return (
-        <Wrapper>
-            <StylezH1>Récapitulatif de la commande</StylezH1>
-        </Wrapper>
-    )
+const OrderSummary = ({ total, price, color, colorPrice, carbon, fuel }) => {
+
+  return (
+    <Wrapper color={color}>
+      <StyledH2>Récapitulatif de la commande</StyledH2>
+      <StyledElement>
+        <p>Prix HT:</p>
+        <p>{price} DC</p>
+      </StyledElement>
+      <StyledElement>
+        <p>Couleur VIP:</p>
+        <p>{colorPrice} DC</p>
+      </StyledElement>
+      <StyledElement>
+        <p>Taxes carbone:</p>
+        <p>{carbon} DC</p>
+      </StyledElement>
+      <StyledElement>
+        <p>Taxes carburant:</p>
+        <p>{fuel} DC</p>
+      </StyledElement>
+      <StyledElementBold>
+        <p>Total:</p>
+        <p>{total} DC</p>
+      </StyledElementBold>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
-  flex-basis: 33%;
-  border: 1px solid black;
-  min-height: 100%;
+  background-color: ${({color}) => color};
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${COLORS.black};
+  padding: 16px;
+  gap: 16px;
 `;
-
-const StylezH1 = styled.div`
-  text-align: center;
+const StyledH2 = styled.h2`
+  margin-bottom: 8px;
+`;
+const StyledElement = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const StyledElementBold = styled(StyledElement)`
+  font-weight: bold;
 `;
 
 export default OrderSummary;

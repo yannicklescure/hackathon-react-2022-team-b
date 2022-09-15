@@ -57,7 +57,7 @@ const TicketForm = () => {
 };
 
 const Wrapper = styled.div`
-  flex-basis: 66%;
+  flex-basis: 70%;
 `;
 
 const Label = styled.label`
