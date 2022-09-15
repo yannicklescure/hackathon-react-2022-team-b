@@ -5,12 +5,14 @@ import styled from "styled-components";
 import PhoneNumberInput from "./PhoneNumberInput";
 import EmailInput from "./Emailinput";
 import CaptchaModal from "../components/CaptchaModal";
+import AddressInputAndLabel from "./AddressInputAndLabel";
 
 const TicketForm = () => {
   const [inputs, setInputs] = useState({});
   const [isEmailShuffled, setIsEmailShuffled] = useState(false);
   const [isCaptchaValidated, setIsCaptchaValidated] = useState(false);
   const [showCaptchaModal, setShowCaptchaModal] = useState(false);
+  const [showEmailField, setShowEmailField] = useState(false);
 
   function toggleCaptchaModal() {
     setShowCaptchaModal(current => !current);
@@ -25,6 +27,7 @@ const TicketForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsEmailShuffled(true);
+    setShowEmailField(true);
     if (isCaptchaValidated) {
       console.log(inputs);
     } else {
@@ -58,6 +61,8 @@ const TicketForm = () => {
 
         <Label>Numéro de Téléphone : </Label>
         <PhoneNumberInput setInputs={setInputs}></PhoneNumberInput>
+
+        <AddressInputAndLabel showEmailField={showEmailField} setShowEmailField={setShowEmailField}></AddressInputAndLabel>
 
         <button type="submit">Soumettre</button>
         <button type="reset">Réinitialiser</button>
