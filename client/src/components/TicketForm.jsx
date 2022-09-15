@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+// components
+import PhoneNumberInput from './PhoneNumberInput';
+
 const TicketForm = () => {
   const [inputs, setInputs] = useState({});
 
@@ -12,7 +15,7 @@ const TicketForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(inputs);
+    console.log(inputs);
   }
 
   return (
@@ -35,6 +38,8 @@ const TicketForm = () => {
           value={inputs.lastName || ""} 
           onChange={handleChange}
         />
+
+        <PhoneNumberInput setInputs={setInputs}></PhoneNumberInput>
 
         <br/> {/* delete me */}
         <button type="submit">Soumettre</button>
