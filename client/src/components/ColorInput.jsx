@@ -19,48 +19,53 @@ const ColorInput = (props) => {
   };
 
   return (
-    <Wrapper>
-      <ColorFieldset onChange={handleChange}>
-        <ColorOption color={COLORS.white} isHidden={colorSwitchCount > 0}>
-          <input type="radio" id="white" name="color" value="white" defaultChecked />
-        </ColorOption>
+    <>
+      <Label>Couleur du ticket : </Label>
+      <Wrapper>
+        <ColorFieldset onChange={handleChange}>
+          <ColorOption color={COLORS.white} isHidden={colorSwitchCount > 0}>
+            <input type="radio" id="white" name="color" value="white" defaultChecked />
+          </ColorOption>
 
-        <ColorOption color={COLORS.purple} isHidden={colorSwitchCount === 0}>
-          <input type="radio" id="purple" name="color" value="purple" />
-        </ColorOption>
+          <ColorOption color={COLORS.purple} isHidden={colorSwitchCount === 0}>
+            <input type="radio" id="purple" name="color" value="purple" />
+          </ColorOption>
 
-        <ColorOption color={COLORS.red}>
-          <input type="radio" id="red" name="color" value="red" />
-        </ColorOption>
+          <ColorOption color={COLORS.red}>
+            <input type="radio" id="red" name="color" value="red" />
+          </ColorOption>
 
-        <ColorOption color={COLORS.blue}>
-          <input type="radio" id="blue" name="color" value="blue" />
-        </ColorOption>
+          <ColorOption color={COLORS.blue}>
+            <input type="radio" id="blue" name="color" value="blue" />
+          </ColorOption>
 
-        <ColorOption color={COLORS.yellow}>
-          <input type="radio" id="yellow" name="color" value="yellow" />
-        </ColorOption>
+          <ColorOption color={COLORS.yellow}>
+            <input type="radio" id="yellow" name="color" value="yellow" />
+          </ColorOption>
 
-        <ColorOption color={COLORS.orange}>
-          <input type="radio" id="orange" name="color" value="orange" />
-        </ColorOption>
-      </ColorFieldset>
-    </Wrapper>
+          <ColorOption color={COLORS.orange}>
+            <input type="radio" id="orange" name="color" value="orange" />
+          </ColorOption>
+        </ColorFieldset>
+      </Wrapper>
+    </>
   )
 };
 
 const Wrapper = styled.div``;
-
 const ColorFieldset = styled.fieldset`
   display: flex;
   border: 1px solid ${COLORS.secondary};
   border-radius: 4px;
 `;
-
 const ColorOption = styled.div`
   background-color: ${props => props.color};
   padding: 5px 15px;
   display: ${props => props.isHidden ? "none" : "block"};
+`;
+const Label = styled.label`
+  padding-top:    20px;
+  padding-bottom: 3px;
 `;
 
 export default ColorInput;

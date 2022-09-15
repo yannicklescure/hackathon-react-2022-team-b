@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import useInterval from "../hooks/useInterval";
 import styled from "styled-components";
 
 const Emailinput = ({ isEmailShuffled, setIsEmailShuffled }) => {
@@ -35,12 +34,19 @@ const Emailinput = ({ isEmailShuffled, setIsEmailShuffled }) => {
   };
 
   return (
-    <Wrapper>
-      <input id={"emailInputId"} type={"email"} onChange={handleChange}/>
-    </Wrapper>
+    <>
+      <Label>Courriel : </Label>
+      <Wrapper>
+        <input id={"emailInputId"} type={"email"} onChange={handleChange}/>
+      </Wrapper>
+    </>
   )
 };
 
 const Wrapper = styled.div``;
+const Label = styled.label`
+  padding-top:    20px;
+  padding-bottom: 3px;
+`;
 
 export default Emailinput;

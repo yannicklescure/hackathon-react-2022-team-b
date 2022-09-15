@@ -1,36 +1,34 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { COLORS } from "../constants";
 
-const CaptchaModal = (props) => {
+const CaptchaModal = ({ showCaptchaModal, setIsCaptchaValidated, toggleCaptchaModal }) => {
+  const [colors, setColors] = useState([]);
+
   const validateCaptcha = () => {
     // I trust the user, this captcha is filled properly
-    props.setIsCaptchaValidated(true);
-    props.toggleCaptchaModal();
+    setIsCaptchaValidated(true);
+    toggleCaptchaModal();
   };
 
   const randomColor = () => {
     return `rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)})`
   };
+
+  useEffect(() => {
+    const arr = [];
+    for(let i=0; i < 9; i++) {
+      arr.push(randomColor());
+    }
+    setColors(arr);
+  }, [])
   
   return (
-    <Wrapper showCaptchaModal={props.showCaptchaModal}>
+    <Wrapper showCaptchaModal={showCaptchaModal}>
       <Container>
         <h1>Veuillez sélectionner les bonnes couleurs</h1>
-
         <ImageGrid>
-          <ImageTile color={randomColor()}></ImageTile>
-          <ImageTile color={randomColor()}></ImageTile>
-          <ImageTile color={randomColor()}></ImageTile>
-
-          <ImageTile color={randomColor()}></ImageTile>
-          <ImageTile color={randomColor()}></ImageTile>
-          <ImageTile color={randomColor()}></ImageTile>
-
-          <ImageTile color={randomColor()}></ImageTile>
-          <ImageTile color={randomColor()}></ImageTile>
-          <ImageTile color={randomColor()}></ImageTile>
+          {colors.map(color => <ImageTile color={color} />)}
         </ImageGrid>
-
         <button onClick={validateCaptcha}>Valider</button>
       </Container>
     </Wrapper>
@@ -46,11 +44,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: ${props => props.showCaptchaModal ? "flex" : "none"};
+  display: ${({showCaptchaModal}) => showCaptchaModal ? "flex" : "none"};
   align-items: center;
   justify-content: center;
 `;
-
 const Container = styled.div`
   width: 500px;
   height: 500px;
@@ -59,16 +56,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
 const ImageGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-grow: 1;
-`
-
+`;
 const ImageTile = styled.button`
-  background-color: ${props => props.color};
+  background-color: ${({color}) => color};
   height: 30%;
   width: 30%;
   margin: 5px;

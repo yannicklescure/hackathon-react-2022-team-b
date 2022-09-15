@@ -13,11 +13,11 @@ const ComplaintBoxes = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   function addStep() {
-      setStep(step + 1);
+    setStep(step + 1);
   }
 
   function togglePopup() {
-      setShowPopup(current => !current)
+    setShowPopup(!showPopup);
   }
 
   return (
@@ -58,7 +58,7 @@ const ComplaintBoxes = () => {
 
             return (
               <StyledBox key={index}>
-                <a href={key.action} target="_blank">
+                <a href={key.action} target="_blank" rel="noreferrer">
                   <StyledBoxInner>
                     <BoxTitle>{key.title}</BoxTitle>
                     <BoxSubtitle>{key.subtitle}</BoxSubtitle>
