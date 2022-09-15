@@ -9,6 +9,7 @@ const Footer = () => {
       <StyledNavLink to="/faq">FAQ</StyledNavLink>
       <StyledNavLink to="/formulaire-de-plaite">Formuler une plainte</StyledNavLink>
       <StyledNavLink to="/politique-de-confidentialite">Politique de confidentialité</StyledNavLink>
+      <StyledNavLink to="/about-us">À propos</StyledNavLink>
     </Wrapper>
   )
 }

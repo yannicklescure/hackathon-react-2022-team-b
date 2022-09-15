@@ -19,7 +19,6 @@ const Navbar = ({ setNavbarHeight }) => {
       </StyledNavLink>
       <Container>
         <Purchase to="/buy-a-ticket">Acheter un billet</Purchase>
-        <StyledNavLink to="/about-us">À propos</StyledNavLink>
       </Container>
     </Wrapper>
   )
