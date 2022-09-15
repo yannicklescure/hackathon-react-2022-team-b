@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "../constants";
-import {FAQquestions} from "../contents/faq";
-import {useEffect, useState} from "react";
 
 const AboutUs = () => {
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { COLORS } from "../constants";
 import {FAQquestions} from "../contents/faq";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 const Faq = () => {
     const [elements, setElements] = useState(FAQquestions);

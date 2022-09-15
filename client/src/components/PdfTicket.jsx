@@ -117,7 +117,7 @@ function BasicDocument(props) {
   const sec = props.time
 
   function isOdd(n) {
-    return Math.abs(n % 2) == 1;
+    return Math.abs(n % 2) === 1;
   }
 
   console.log(sec)
