@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 const OrderSummary = () => {
-  return (
-    <Wrapper>
-      <h1>Order Summary</h1>
-    </Wrapper>
-  )
+    return (
+        <Wrapper>
+            <StylezH1>Récapitulatif de la commande</StylezH1>
+        </Wrapper>
+    )
 }
 
 const Wrapper = styled.div`
   flex-basis: 33%;
   border: 1px solid black;
+  min-height: 100%;
+`;
+
+const StylezH1 = styled.div`
+  text-align: center;
 `;
 
 export default OrderSummary;

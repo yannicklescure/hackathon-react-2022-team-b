@@ -20,8 +20,8 @@ const TicketForm = () => {
 
   return (
     <Wrapper>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="firstName">Prénom : </label>
+      <Form onSubmit={handleSubmit}>
+        <Label htmlFor="firstName">Prénom : </Label>
         <input 
           type="text" 
           name="firstName" 
@@ -30,7 +30,7 @@ const TicketForm = () => {
           onChange={handleChange}
         />
 
-        <label htmlFor="lastName">Nom de famille : </label>
+        <Label htmlFor="lastName">Nom de famille : </Label>
         <input 
           type="text" 
           name="lastName"
@@ -43,13 +43,24 @@ const TicketForm = () => {
 
         <br/> {/* delete me */}
         <button type="submit">Soumettre</button>
-      </form>
+      </Form>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   flex-basis: 66%;
+`;
+
+const Label = styled.label`
+  padding-top:    20px;
+  padding-bottom: 3px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+   align-items: flex-start;
 `;
 
 export default TicketForm;
