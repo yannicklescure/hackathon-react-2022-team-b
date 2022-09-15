@@ -25,7 +25,7 @@ const Faq = () => {
 
     return (
         <>
-        <StyledH1>FAQ</StyledH1>
+          <StyledH1>FAQ</StyledH1>
           <QuestionsWrapper>
             {elements.map((element, index) => (
               <QuestionWrapper key={element.question}>
@@ -43,6 +43,7 @@ const StyledH1 = styled.h1`
   font-size: 3rem;
   text-align: center;
   margin-bottom: 1rem;
+  margin-top 1rem;
 `;
 
 const QuestionsWrapper = styled.div`
