@@ -6,7 +6,7 @@ const Popup = (props) => {
   return (
     <StyledPopup showPopup={props.showPopup}>
       <div className="popup-inner">
-        <div onClick={props.togglePopup}>X</div>
+        <button className={'close-button'} onClick={props.togglePopup}>X</button>
         <h3>{props.title}</h3>
         <p>{props.content}</p>
       </div>
@@ -24,6 +24,28 @@ const StyledPopup = styled.div`
   background: ${COLORS.light};
   padding: 35px 50px;
   display: ${props => props.showPopup ? "block" : "none"};
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid ${COLORS.dark};
+
+  .popup-inner {
+    position: relative;
+
+    h3 {
+      font-size: 38px;
+    }
+  
+    p {
+      font-size: 18px;
+      margin-top: 25px;
+    }
+  
+    .close-button {
+      position: absolute;
+      top: -25px;
+      right: -35px;
+    }
+  }
 `;
 
 export default Popup;

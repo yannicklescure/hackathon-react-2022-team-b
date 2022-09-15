@@ -1,109 +1,96 @@
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import { COLORS } from "../constants";
+import {ComplaintArr} from "../contents/complaint";
+import Popup from "./Popup";
 
-const ComplaintBoxes = (props) => {
+const ComplaintBoxes = () => {
 
-  switch(props.step) {
-    case 1:
+  const boxes = ComplaintArr;
 
-      return (
-        <>
-          <Title>Réponses à vos questions</Title>
+  const [step, setStep] = useState(1);
+  const [showPopup, setShowPopup] = useState(false);
 
-          <StyledBoxHolder>
-
-            <StyledBox onClick={props.addStep}>
-              <StyledBoxInner>
-                <BoxTitle>Contactez nous</BoxTitle>
-                <BoxSubtitle>Par email ou par téléphone</BoxSubtitle>
-              </StyledBoxInner>
-            </StyledBox>
-
-            <StyledBox>
-              <StyledNavLink to="/faq">
-                <StyledBoxInner>
-                  <BoxTitle>Foire aux questions</BoxTitle>
-                  <BoxSubtitle>La réponse à votre question se retrouve peut-être ici</BoxSubtitle>
-                </StyledBoxInner>
-              </StyledNavLink>
-            </StyledBox>
-
-            <StyledBox>
-              <a href="https://www.reddit.com/r/flatearth/" target="_blank">
-                <StyledBoxInner>
-                  <BoxTitle>Forum de discussion</BoxTitle>
-                  <BoxSubtitle>D'autres personnes ont peut-être eu le même problème que vous</BoxSubtitle>
-                </StyledBoxInner>
-              </a>
-            </StyledBox>
-
-          </StyledBoxHolder>
-        </>
-      );
-      break;
-
-    case 2:
-      
-      return (
-        <>
-          <Title>Avez-vous essayé ces options ?</Title>
-
-          <StyledBoxHolder>
-
-            <StyledBox>
-              <StyledNavLink to="/faq">
-                <StyledBoxInner>
-                  <BoxTitle>Foire aux questions</BoxTitle>
-                  <BoxSubtitle>La réponse à votre question se retrouve peut-être ici</BoxSubtitle>
-                </StyledBoxInner>
-              </StyledNavLink>
-            </StyledBox>
-
-            <StyledBox>
-              <a href="https://www.reddit.com/r/flatearth/" target="_blank">
-                <StyledBoxInner>
-                  <BoxTitle>Forum de discussion</BoxTitle>
-                  <BoxSubtitle>D'autres personnes ont peut-être eu le même problème que vous</BoxSubtitle>
-                </StyledBoxInner>
-              </a>
-            </StyledBox>
-
-          </StyledBoxHolder>
-
-          <SmallParagraph onClick={props.addStep}>Oui, j'ai essayé ces options</SmallParagraph>
-        </>
-      );
-      break;
-
-    case 3:
-
-      return (
-        <>
-          <Title>Contactez-nous</Title>
-
-          <StyledBoxHolder>
-
-            <StyledBox>
-              <StyledNavLink to="/buy-a-ticket">
-                <StyledBoxInner>
-                  <BoxTitle>Par courriel</BoxTitle>
-                </StyledBoxInner>
-              </StyledNavLink>
-            </StyledBox>
-
-            <StyledBox onClick={() => props.togglePopup(props.showPopup)}>
-              <StyledBoxInner>
-                <BoxTitle>Par téléphone</BoxTitle>
-              </StyledBoxInner>
-            </StyledBox>
-
-          </StyledBoxHolder>
-        </>
-      );
-      break;
-
+  function addStep() {
+      setStep(step + 1);
   }
+
+  function togglePopup() {
+      setShowPopup(current => !current)
+  }
+
+  return (
+    <>
+      <Title>{boxes[step - 1].title}</Title>
+      <StyledBoxHolder>
+        
+        {boxes[step - 1].boxes.map((key, index) => {
+
+          if(key.type === 'onclick') {
+
+            return (
+              <StyledBox key={index} onClick={
+                key.action === 'addStep'
+                ? addStep
+                : () => togglePopup(showPopup)}>
+                <StyledBoxInner>
+                  <BoxTitle>{key.title}</BoxTitle>
+                  <BoxSubtitle>{key.subtitle}</BoxSubtitle>
+                </StyledBoxInner>
+              </StyledBox>
+            )
+
+          } else if(key.type === 'link') {
+
+            return (
+              <StyledBox key={index}>
+                <StyledNavLink to={key.action}>
+                  <StyledBoxInner>
+                    <BoxTitle>{key.title}</BoxTitle>
+                    <BoxSubtitle>{key.subtitle}</BoxSubtitle>
+                  </StyledBoxInner>
+                </StyledNavLink>
+              </StyledBox>
+            )
+
+          } else if(key.type === 'external') {
+
+            return (
+              <StyledBox key={index}>
+                <a href={key.action} target="_blank">
+                  <StyledBoxInner>
+                    <BoxTitle>{key.title}</BoxTitle>
+                    <BoxSubtitle>{key.subtitle}</BoxSubtitle>
+                  </StyledBoxInner>
+                </a>
+              </StyledBox>
+            )
+
+          } else {
+
+            return (
+              <StyledBox>
+                <StyledBoxInner>
+                  <BoxTitle>{key.title}</BoxTitle>
+                  <BoxSubtitle>{key.subtitle}</BoxSubtitle>
+                </StyledBoxInner>
+              </StyledBox>
+            )
+
+          }
+        })}
+      </StyledBoxHolder>
+      { step === 2 &&
+        <SmallParagraph onClick={addStep}>Oui, j'ai essayé ces options</SmallParagraph>
+      }
+      <Popup
+        title="Appel téléphonique"
+        content="Ce service n'est pas disponible pour le moment"
+        togglePopup={togglePopup}
+        showPopup={showPopup} />
+    </>
+  )
 }
 
 const Title = styled.h1`
@@ -121,6 +108,11 @@ const StyledBox = styled.div`
   flex: 0 0 33.33%;
   max-width: 33.33%;
   padding: 0 15px;
+
+  a {
+    text-decoration: none;
+    color: ${COLORS.dark};
+  }
 `;
 const StyledBoxInner = styled.div`
   border-radius: 10px;
@@ -140,13 +132,10 @@ const BoxTitle = styled.p`
 `;
 const BoxSubtitle = styled.p`
   font-size: 16px;
+  line-height: 1.2;
   margin-top: 15px;
 `;
 const StyledNavLink = styled(NavLink)`
-  color: ${COLORS.dark};
-  text-decoration: none;
-`;
-const StyledCustomLink = styled(NavLink)`
   color: ${COLORS.dark};
   text-decoration: none;
 `;
