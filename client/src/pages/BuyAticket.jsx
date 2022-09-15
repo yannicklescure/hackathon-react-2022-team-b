@@ -30,7 +30,6 @@ const BuyAticket = () => {
       <Container>
         <TicketForm />
         <RightBar>
-          <FalseTimer />
           <OrderSummary
             total={total}
             price={price}
@@ -39,6 +38,7 @@ const BuyAticket = () => {
             carbon={carbon}
             fuel={fuel}
           />
+          <FalseTimer />
           <Ad />
         </RightBar>
       </Container>
