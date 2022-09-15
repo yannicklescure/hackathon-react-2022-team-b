@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
 
 // Pages Imports
@@ -16,6 +16,7 @@ import Navbar from "./Navbar";
 import NoMatch from "./NoMatch";
 import Footer from "./Footer";
 import styled from "styled-components";
+import Confirmation from "../pages/Confirmation";
 
 const App = () => {
   const [isLoadead, setIsLoadead] = useState(false);
@@ -52,7 +53,14 @@ const App = () => {
       path: "/formulaire-de-plaite",
       element: <Complaint />,
     },
+    {
+      path: "/ticket",
+      element: <Confirmation />,
+    },
   ];
+
+  const location = useLocation();
+  console.log(location);
 
   return (
     <>
@@ -62,13 +70,14 @@ const App = () => {
       ) : (
         <>
           <Container>
-            <Navbar setNavbarHeight={setNavbarHeight} />
+            {location.pathname !== '/ticket' && <Navbar setNavbarHeight={setNavbarHeight} />}
+            
             <Routes>
               {router.map(route => <Route key={route.path} path={route.path} element={route.element} />)}
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Container>
-          <Footer />
+          {location.pathname !== '/ticket' && <Footer />}
         </>
       )}
     </>

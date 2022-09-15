@@ -5,6 +5,8 @@ import OrderSummary from "../components/OrderSummary";
 import FalseTimer from "../components/FalseTimer";
 import Ad from "../components/Ad";
 import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
+import { NavLink } from "react-router-dom";
 
 const BuyAticket = () => {
   const [total, setTotal] = useState(0);
@@ -16,6 +18,8 @@ const BuyAticket = () => {
   const [fuel, setFuel] = useState(0);
   const [numOfTickets, setNumOfTickets] = useState(99);
   const [nbTicket, setNbTicket] = useState(1);
+  const [isCaptchaValidated, setIsCaptchaValidated] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
 
   useEffect(() => {
     fetch('/api/tickets')
@@ -25,6 +29,12 @@ const BuyAticket = () => {
       setNumOfTickets(numOfTickets - result.data.length);
     })
   }, [])
+
+  useEffect(() => {
+    if (isCaptchaValidated) {
+      setTimeout(() => setIsConfirmed(true), 3000);
+    }
+  }, [isCaptchaValidated])
 
   useEffect(() => {
     const price = 54000 + colorPrice + inkPrice;
@@ -38,33 +48,48 @@ const BuyAticket = () => {
     setTotal(result);
   }, [price, colorPrice, inkPrice]);
 
+  if (isConfirmed) return (
+    <Confirmation>
+      <StyledConfirmation>Votre commande a été validée.</StyledConfirmation>
+      <NavLink to="/ticket">Télécharger votre billet</NavLink>
+    </Confirmation>
+  )
+
   return (
-    <Wrapper>
-      <StyledH1>Achetez un billet dès <Warning>maintenant!</Warning></StyledH1>
-      <StyledH2>Seulement {numOfTickets} billets restants</StyledH2>
-      <Container>
-        <TicketForm
-          color={color}
-          setColor={setColor}
-          setColorPrice={setColorPrice}
-          setInkPrice={setInkPrice}
-          setNbTicket={setNbTicket}
-        />
-        <RightBar>
-          <FalseTimer />
-          <OrderSummary
-            total={total}
-            price={price}
-            color={color}
-            colorPrice={colorPrice}
-            carbon={carbon}
-            fuel={fuel}
-            nbTicket={nbTicket}
-          />
-          <Ad />
-        </RightBar>
-      </Container>
-    </Wrapper>
+    <>
+      {isCaptchaValidated ? (
+        <Loading />
+      ) : (
+        <Wrapper>
+          <StyledH1>Achetez un billet dès <Warning>maintenant!</Warning></StyledH1>
+          <StyledH2>Seulement {numOfTickets} billets restants</StyledH2>
+          <Container>
+            <TicketForm
+              color={color}
+              setColor={setColor}
+              setColorPrice={setColorPrice}
+              setInkPrice={setInkPrice}
+              setNbTicket={setNbTicket}
+              setIsCaptchaValidated={setIsCaptchaValidated}
+            />
+            <RightBar>
+              <FalseTimer />
+              <OrderSummary
+                total={total}
+                price={price}
+                color={color}
+                colorPrice={colorPrice}
+                carbon={carbon}
+                fuel={fuel}
+                nbTicket={nbTicket}
+              />
+              <Ad />
+            </RightBar>
+          </Container>
+        </Wrapper>
+
+      )}
+    </>
   );
 };
 const Wrapper = styled.div`
@@ -115,6 +140,21 @@ const Container = styled.div`
   min-height: 100%;
   width: 100%;
   height: 100%; /* NEW */
+`;
+const Confirmation = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 16px;
+  height: 50vh;
+`;
+const StyledConfirmation = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default BuyAticket;

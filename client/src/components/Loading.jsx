@@ -1,9 +1,14 @@
 import Spinner from './Spinner';
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 const Loading = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
   return (
-    <SpinnerWrapper><Spinner></Spinner></SpinnerWrapper>
+    <SpinnerWrapper><Spinner /></SpinnerWrapper>
   )
 }
 

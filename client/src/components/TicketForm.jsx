@@ -11,10 +11,9 @@ import UserInfo from "./UserInfo";
 import ValidedForm from "./ValidedForm";
 import TicketNumber from "./TicketNumber";
 
-const TicketForm = ({ setInkPrice, setColor, setColorPrice, setNbTicket }) => {
+const TicketForm = ({ setInkPrice, setColor, setColorPrice, setNbTicket, setIsCaptchaValidated }) => {
   const [inputs, setInputs] = useState({});
   const [isEmailShuffled, setIsEmailShuffled] = useState(false);
-  const [isCaptchaValidated, setIsCaptchaValidated] = useState(false);
   const [showCaptchaModal, setShowCaptchaModal] = useState(false);
   const [showEmailField, setShowEmailField] = useState(false);
   // const [isFormReadyToSubmit, setIsFormReadyToSubmit] = useState(false);

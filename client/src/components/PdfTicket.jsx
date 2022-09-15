@@ -112,13 +112,19 @@ const styles = StyleSheet.create({
 });
 
 // Create Document Component
-function BasicDocument(props) {
+const BasicDocument = ({
+  lastName='test',
+  email='email',
+  phone='phone',
+  address='adresse',
+  color='color',
+  price='106 506DC',
+  time = new Date().getSeconds()
+}) => {
+  
+  const sec = time
 
-  const sec = props.time
-
-  function isOdd(n) {
-    return Math.abs(n % 2) == 1;
-  }
+  const isOdd = (n) => Math.abs(n % 2) === 1;
 
   console.log(sec)
   console.log(isOdd(sec))
@@ -140,17 +146,17 @@ function BasicDocument(props) {
             <View style={styles.contentHolder}>
 
               <View style={styles.colContent}>
-                <Text style={styles.generalText}>Prénom : {props.lastName}</Text>
-                <Text style={styles.generalText}>Prénom 2 : {props.lastName}</Text>
-                <Text style={styles.generalText}>Email : {props.email}</Text>
+                <Text style={styles.generalText}>Prénom : {lastName}</Text>
+                <Text style={styles.generalText}>Prénom 2 : {lastName}</Text>
+                <Text style={styles.generalText}>Email : {email}</Text>
               </View>
 
-              <Text>Prix : {props.price}</Text>
+              <Text>Prix : {price}</Text>
 
               <View style={styles.colContent}>
-                <Text style={styles.generalText}>Couleur du billet : {props.color}</Text>
-                <Text style={styles.generalText}>Téléphone : {props.phone}</Text>
-                <Text style={styles.generalText}>Adresse : {props.address}</Text>
+                <Text style={styles.generalText}>Couleur du billet : {color}</Text>
+                <Text style={styles.generalText}>Téléphone : {phone}</Text>
+                <Text style={styles.generalText}>Adresse : {address}</Text>
               </View>
 
             </View>
@@ -165,7 +171,7 @@ function BasicDocument(props) {
 
               <View style={styles.noticeHolder}>
                 <Text style={styles.noticeTitle}>Billet NON VALIDE</Text>
-                <Text style={styles.noticeContent}>Désoler, mais il n'y a plus de place disponible à bord de la fusée</Text>
+                <Text style={styles.noticeContent}>Nous sommes désolé, mais il n'y a plus de place disponible à bord de la fusée</Text>
                 <Text style={styles.noticeNote}>Billet non remboursable</Text>
               </View>
             </>
