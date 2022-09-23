@@ -31,6 +31,10 @@ Le temps étant un enjeu, les équipes doivent penser à une solution qu’ils s
 - Tutoriel de base, installation…
 - La base de données est optionnelle. Si le logiciel a besoin d’une base de données, utilisez un compte gratuit MongoDB sur MongoDB Atlas.
 
+## To-do list
+
+[Liste des tâches disponible ici](https://github.com/yannicklescure/hackathon-react-2022-team-b/blob/master/tasksList.md).
+
 ## Heroku
 
 The result is available on [Heroku](https://lws-hackathon-2022-team-b.herokuapp.com/).
